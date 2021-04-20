@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 
 public class Car implements Vehicle{
-	@Autowired
+/*	@Autowired
 	Tyre tyre;
 	
 	
@@ -21,11 +21,11 @@ public class Car implements Vehicle{
 	public void setTyre(Tyre tyre) {
 		this.tyre = tyre;
 	}
-
+*/
 
 
 	public void drive() {
-		System.out.println("driving car with tyre " +tyre);
+		System.out.println("driving car with tyre " );
 	}
 
 }

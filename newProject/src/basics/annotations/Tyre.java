@@ -1,7 +1,16 @@
 package basics.annotations;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
 public class Tyre {
-	private String brand;
+	
+	@Bean
+	public Car getRide() {
+		return new Car();
+	}
+	/*private String brand;
 
 	
 	public Tyre(String brand) {
@@ -14,7 +23,7 @@ public class Tyre {
 		return brand;
 	}
 
-
+	@Bean
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
@@ -25,6 +34,6 @@ public class Tyre {
 		// TODO Auto-generated method stub
 		return "tyre brand : "+brand;
 		//super.toString();
-	}
+	}*/
 
 }
