@@ -7,10 +7,11 @@ public class App {
 	public static void main(String[] args) {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		Tyre tyre = (Tyre) context.getBean("tyre");
+		System.out.println(tyre);
 		
-		
-		Vehicle vehicle = (Bike) context.getBean("bike");
-		vehicle.drive();
+		/*Vehicle vehicle = (Bike) context.getBean("bike");
+		vehicle.drive();*/
 	}
 
 }
