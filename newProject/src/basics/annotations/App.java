@@ -9,7 +9,7 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		
 		
-		Vehicle vehicle = (Vehicle) context.getBean("bike");
+		Vehicle vehicle = (Bike) context.getBean("bike");
 		vehicle.drive();
 	}
 
