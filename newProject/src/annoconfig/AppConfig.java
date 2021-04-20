@@ -10,9 +10,16 @@ public class AppConfig {
 	@Bean
 	public Samsung getPhone() {
 		return new Samsung();
-		
-		
 	}
+		
+	@Bean
+	public Microprocessor getCpu() {
+		return new Snapdragon();
+	}
+	
+		
+		
+	
 	
 
 }
