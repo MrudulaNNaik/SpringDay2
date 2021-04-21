@@ -12,7 +12,12 @@ public class Circle {
 	}
 
 	public void setName(String name) {
+		System.out.println("setting name");
 		this.name = name;
+	}
+	
+	public int getDia() {
+		return 5;
 	}
 	
 
