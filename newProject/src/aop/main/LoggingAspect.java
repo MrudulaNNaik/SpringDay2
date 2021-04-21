@@ -1,6 +1,7 @@
 package aop.main;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -21,7 +22,7 @@ public class LoggingAspect {
 
 	//@Before("allGeters()")
 	
-	@Before("allCircleMethods()")
+	/*@Before("allCircleMethods()")
 	public void loggingAdvice(JoinPoint joinPoint) {
 		//System.out.println(joinPoint.toLongString());
 		
@@ -33,9 +34,15 @@ public class LoggingAspect {
 			if(methodName.contains("setName")) {
 				System.out.println("writing log for setName method before its executed");
 			}
+	}*/
+
+	@After("allCircleMethods()")
+	public void adviceAfterCircleMethodsComplete() {
+		System.out.println("a circle method is complete");
 	}
-
-
+	
+	
+	
 	@Pointcut("execution(* aop..*.get*())")
 	public void allGetters() {}
 	
@@ -44,6 +51,13 @@ public class LoggingAspect {
 	
 	@Pointcut("within(aop.model.Circle)")
 		public void allCircleMethods() {}
-
-
+	/*
+	@Before("methodsStringArgs(String name)")
+	public void stringArgsAdvice(String name) {
+		System.out.println("advice for all methods which accept a string as an arguement" +name);
+		
+	}
+		@Pointcut("args(name)")
+		public void methodStringArgs(String name) {}
+		*/
 }
