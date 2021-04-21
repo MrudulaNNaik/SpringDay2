@@ -12,9 +12,9 @@ public class Triangle {
 		return name;
 	}
 
-	public void setName(String name) {
+	public String setName(String name) {
 		this.name = name;
+		return "\nreturning--"+name;
 	}
-	
 
 }
