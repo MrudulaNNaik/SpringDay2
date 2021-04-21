@@ -1,5 +1,6 @@
 package aop.main;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -21,23 +22,19 @@ public class LoggingAspect {
 	//@Before("allGeters()")
 	
 	@Before("allCircleMethods()")
-	public void loggingAdvice() {
+	public void loggingAdvice(JoinPoint joinPoint) {
+		//System.out.println(joinPoint.toLongString());
+		
+		String methodName = joinPoint.toLongString();
+		if(methodName.contains("getDia")) {
 		System.out.println("writing log before method is executed");
+		}
+		else 
+			if(methodName.contains("setName")) {
+				System.out.println("writing log for setName method before its executed");
+			}
 	}
 
-	/*@Before("execution(* aop.model..*.*(..))")
-
-	 *public void secondAdvice() {
-	 *	System.out.println("second log before method is executed");
-	 *}
-
-
-	 *@Before("execution(* aop.model..*.*(..))")
-
-	 *public void thirdAdvice() {
-	 *	System.out.println("third log before method is executed");
-	 *}
-	 */
 
 	@Pointcut("execution(* aop..*.get*())")
 	public void allGetters() {}
