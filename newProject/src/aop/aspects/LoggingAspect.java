@@ -12,8 +12,13 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-
+@Aspect
 public class LoggingAspect {
+	
+	public void myLogginAdvice() {
+		System.out.println("my logging advice");
+	}
+
 	//one aspect can contain multiple advices
 
 		//@Before("execution(* aop.model..*.*(..))")   --- for all methods of all classes present in this package and its subpackages
@@ -83,6 +88,8 @@ public class LoggingAspect {
 
 		@Pointcut("args(name)")
 		public void methodsStringArgs(String name) {}
+		
+		@Around("@annotation(aop.aspects.Loggable)") 
 		public void myAroundAdvice(ProceedingJoinPoint pjp) {
 
 			try {
