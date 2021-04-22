@@ -65,7 +65,7 @@ public class LoggingAspect {
 			System.out.println("ip string = "+name +"\n op String = " +returnString);
 		}
 		
-		@Around("allGetters()")
+		@Around("@annotation(aop.aspects.Loggable)") //around advice to be applied to paces at loggable annotation is present
 		public void myAroundAdvice(ProceedingJoinPoint pjp) {
 			try {
 				System.out.println("before advice");
