@@ -12,7 +12,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-@Aspect
+
 public class LoggingAspect {
 	//one aspect can contain multiple advices
 
@@ -65,20 +65,7 @@ public class LoggingAspect {
 			System.out.println("ip string = "+name +"\n op String = " +returnString);
 		}
 		
-		@Around("@annotation(aop.aspects.Loggable)") //around advice to be applied to paces at loggable annotation is present
-		public void myAroundAdvice(ProceedingJoinPoint pjp) {
-			try {
-				System.out.println("before advice");
-				pjp.proceed();
-				System.out.println("after method returns advice");
-				
-			} catch (Throwable e) {
-				System.out.println("after throwing");
-				//e.printStackTrace();
-				
-			}System.out.println("finally advice");
-		}
-		
+		//@Around("all)") //around advice to be applied to paces at loggable annotation is present
 		
 		@Pointcut("execution(* aop..*.get*())")
 		public void allGetters() {}
@@ -96,6 +83,18 @@ public class LoggingAspect {
 
 		@Pointcut("args(name)")
 		public void methodsStringArgs(String name) {}
+		public void myAroundAdvice(ProceedingJoinPoint pjp) {
+
+			try {
+				System.out.println("before advice");
+				pjp.proceed();
+				System.out.println("after method returns advice");
+			} catch (Throwable e) {
+				System.out.println("after throwing");
+				//e.printStackTrace();
+			} System.out.println("finally advice");
+			
+		}
 
 
 		/*
